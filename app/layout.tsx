@@ -1,15 +1,10 @@
 import type { Metadata } from 'next'
-import { Providers } from './components/Providers'
 import './globals.css'
+import { ThemeProvider } from './components/ThemeProvider'
 
 export const metadata: Metadata = {
-  title: 'GiftCardX - Onchain Gift Card Marketplace',
-  description: 'The onchain gift card marketplace for Farcaster, powered by Base.',
-  openGraph: {
-    title: 'GiftCardX',
-    description: 'The onchain gift card marketplace for Farcaster, powered by Base.',
-    images: ['/og-image.png'],
-  },
+  title: 'Base Mini App',
+  description: 'Built with Zara',
 }
 
 export default function RootLayout({
@@ -20,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Providers>{children}</Providers>
+        <ThemeProvider defaultTheme="base">
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
