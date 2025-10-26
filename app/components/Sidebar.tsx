@@ -1,78 +1,83 @@
-'use client'
+'use client';
 
-import { X, User, AlertTriangle, Heart, Zap, Info } from 'lucide-react'
+import { X, Home, CreditCard, ArrowLeftRight, Gift, User, Settings2 } from 'lucide-react';
 
 interface SidebarProps {
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }
 
-export function Sidebar({ onClose }: SidebarProps) {
-  const menuItems = [
-    { icon: User, label: 'Franc', value: '', chevron: true },
-    { icon: null, label: 'U20', value: '9.1', chevron: false },
-    { icon: AlertTriangle, label: 'Toptale', value: '', chevron: true, alert: true },
-    { icon: Heart, label: 'Lows', value: '', chevron: true },
-    { icon: Zap, label: 'Live', value: '0:45', chevron: false },
-    { icon: null, label: 'Choy to Mock', value: '', chevron: true },
-    { icon: Info, label: 'And Pay', value: '', chevron: true },
-  ]
+const menuItems = [
+  { icon: Home, label: 'Home', active: false },
+  { icon: CreditCard, label: 'My Cards', active: true },
+  { icon: ArrowLeftRight, label: 'Exchange', active: false },
+  { icon: Gift, label: 'Send Gift', active: false },
+  { icon: User, label: 'Profile', active: false },
+  { icon: Settings2, label: 'Settings', active: false },
+];
 
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
-    <div className="h-full flex flex-col bg-surface">
-      {/* Header */}
-      <div className="p-6 border-b border-surface-hover flex items-center justify-between">
-        <h2 className="text-lg font-semibold text-fg">Now Us</h2>
-        <button
+    <>
+      {/* Mobile overlay */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
           onClick={onClose}
-          className="lg:hidden p-2 hover:bg-surface-hover rounded-lg transition-colors duration-200"
-          aria-label="Close menu"
-        >
-          <X size={20} className="text-muted" />
-        </button>
-      </div>
-
-      {/* Menu items */}
-      <nav className="flex-1 overflow-y-auto p-4">
-        <ul className="space-y-2">
-          {menuItems.map((item, index) => (
-            <li key={index}>
-              <button className="w-full flex items-center justify-between p-3 rounded-lg hover:bg-surface-hover transition-colors duration-200 group">
-                <div className="flex items-center gap-3">
-                  {item.icon && (
-                    <div className={`${item.alert ? 'text-danger' : 'text-muted'}`}>
-                      <item.icon size={20} />
-                    </div>
-                  )}
-                  <span className="text-fg font-medium">{item.label}</span>
-                </div>
-                
-                <div className="flex items-center gap-2">
-                  {item.value && (
-                    <span className="text-muted text-sm">{item.value}</span>
-                  )}
-                  {item.chevron && (
-                    <svg
-                      className="w-5 h-5 text-muted group-hover:text-fg transition-colors duration-200"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  )}
-                </div>
-              </button>
-            </li>
+        />
+      )}
+      
+      {/* Sidebar */}
+      <aside
+        className={`
+          fixed top-0 left-0 h-full w-64 bg-surface border-r border-border z-50
+          transform transition-transform duration-300 ease-in-out
+          ${isOpen ? 'translate-x-0' : '-translate-x-full'}
+          lg:translate-x-0 lg:static
+        `}
+      >
+        <div className="flex items-center justify-between p-4 border-b border-border lg:hidden">
+          <h2 className="text-lg font-semibold">Menu</h2>
+          <button
+            onClick={onClose}
+            className="p-2 rounded-lg hover:bg-bg transition-colors"
+            aria-label="Close menu"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+        
+        <nav className="p-4 space-y-2">
+          {menuItems.map((item) => (
+            <button
+              key={item.label}
+              className={`
+                w-full flex items-center gap-3 px-4 py-3 rounded-lg
+                transition-colors text-left
+                ${item.active 
+                  ? 'bg-accent text-white' 
+                  : 'hover:bg-bg text-fg'
+                }
+              `}
+            >
+              <item.icon className="w-5 h-5" />
+              <span className="font-medium">{item.label}</span>
+            </button>
           ))}
-        </ul>
-      </nav>
-
-      {/* Footer */}
-      <div className="p-6 border-t border-surface-hover">
-        <button className="w-full py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors duration-200 font-medium">
-          Issue Gift Card
-        </button>
-      </div>
-    </div>
-  )
+        </nav>
+        
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border">
+          <div className="flex items-center gap-3 p-3 rounded-lg bg-bg">
+            <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-sm font-semibold">
+              F
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-medium truncate">Franc</p>
+              <p className="text-sm text-fg text-opacity-60 truncate">@franc</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </>
+  );
 }

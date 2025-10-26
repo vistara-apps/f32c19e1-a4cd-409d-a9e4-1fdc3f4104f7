@@ -1,31 +1,16 @@
 {
   "accountAssociation": {
-    "header": "eyJmaWQiOjEyMzQ1LCJ0eXBlIjoiY3VzdG9keSIsImtleSI6IjB4MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMCJ9",
+    "header": "eyJmaWQiOjkxNTIsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgwMmVmNzkwRGQ3OTkzQTM1ZkQ4NDdDMDUzRURkQUU5NDBEMDU1NTk2In0",
     "payload": "eyJkb21haW4iOiJnaWZ0Y2FyZHguY29tIn0",
-    "signature": "MHgwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw"
+    "signature": "MHgxMGQwZGU4ZGYwZDUwZTdmMGIxN2YxMTU2NDI1MjRmZTY0MTUyZGU4ZGU1MWU0MThiYjU4ZjVmZmQxYjRjNDBiNGVlZTRhNDcwNmVmNjhlMzQ0ZGQ5MDBkYmQyMmNlMmVlZGY5ZGQ0N2JlNWRmNzMwYzUxNjE4OWVjZDJjY2Y0MDFj"
   },
   "frame": {
     "version": "next",
     "name": "GiftCardX",
     "iconUrl": "https://giftcardx.com/icon.png",
-    "homeUrl": "https://app-3f4104f7-jsg6.vercel.app",
+    "homeUrl": "https://giftcardx.com",
     "splashImageUrl": "https://giftcardx.com/splash.png",
-    "splashBackgroundColor": "#0a1929",
-    "webhookUrl": "https://app-3f4104f7-jsg6.vercel.app/api/webhook",
-    "subtitle": "Onchain Gift Cards",
-    "description": "The onchain gift card marketplace for Farcaster, powered by Base. Issue, exchange, and redeem gift cards as NFTs.",
-    "primaryCategory": "social",
-    "tags": [
-      "giftcards",
-      "nft",
-      "marketplace",
-      "base",
-      "farcaster"
-    ],
-    "heroImageUrl": "https://giftcardx.com/og-image.png",
-    "tagline": "Gift cards, onchain",
-    "ogTitle": "GiftCardX - Onchain Gift Card Marketplace",
-    "ogDescription": "The onchain gift card marketplace for Farcaster, powered by Base.",
-    "ogImageUrl": "https://giftcardx.com/og-image.png"
+    "splashBackgroundColor": "#0f1729",
+    "webhookUrl": "https://giftcardx.com/api/farcaster-webhook"
   }
 }

@@ -1,27 +1,40 @@
-'use client'
+'use client';
 
-import { Gift } from 'lucide-react'
+import { Menu, Bell } from 'lucide-react';
 
-export function Header() {
+interface HeaderProps {
+  onMenuClick: () => void;
+}
+
+export function Header({ onMenuClick }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-30 bg-surface/95 backdrop-blur-sm border-b border-surface-hover">
-      <div className="max-w-7xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-              <Gift className="text-white" size={24} />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-fg">GiftCardX</h1>
-              <p className="text-xs text-muted">Onchain Gift Cards</p>
-            </div>
-          </div>
-          
-          <button className="px-4 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors duration-200 font-medium">
-            Connect Wallet
+    <header className="sticky top-0 z-50 bg-surface border-b border-border">
+      <div className="flex items-center justify-between px-4 py-3 md:px-6">
+        <div className="flex items-center gap-4">
+          <button
+            onClick={onMenuClick}
+            className="lg:hidden p-2 rounded-lg hover:bg-bg transition-colors"
+            aria-label="Toggle menu"
+          >
+            <Menu className="w-6 h-6" />
           </button>
+          <h1 className="text-xl font-bold">GiftCardX</h1>
+        </div>
+        
+        <div className="flex items-center gap-3">
+          <button
+            className="p-2 rounded-lg hover:bg-bg transition-colors relative"
+            aria-label="Notifications"
+          >
+            <Bell className="w-5 h-5" />
+            <span className="absolute top-1 right-1 w-2 h-2 bg-danger rounded-full"></span>
+          </button>
+          
+          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-semibold">
+            F
+          </div>
         </div>
       </div>
     </header>
-  )
+  );
 }

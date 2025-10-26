@@ -1,43 +1,65 @@
-'use client'
+'use client';
 
-import { GiftCardItem } from './GiftCardItem'
+import { GiftCardItem } from './GiftCardItem';
 
-interface GiftCard {
-  id: string
-  brand: string
-  value: number
-  image: string
-  color: string
-}
+const giftCards = [
+  {
+    id: '1',
+    brand: 'FIX',
+    value: 300,
+    currency: 'USD',
+    image: '/cards/fix.png',
+    bgColor: 'from-cyan-400 to-cyan-300',
+  },
+  {
+    id: '2',
+    brand: 'Dioniny',
+    value: 150,
+    currency: 'USD',
+    image: '/cards/dioniny.png',
+    bgColor: 'from-blue-900 to-blue-800',
+  },
+  {
+    id: '3',
+    brand: 'Presents',
+    value: 150,
+    currency: 'USD',
+    image: '/cards/presents.png',
+    bgColor: 'from-teal-300 to-teal-200',
+  },
+  {
+    id: '4',
+    brand: 'City Clap',
+    value: 250,
+    currency: 'USD',
+    image: '/cards/cityclap.png',
+    bgColor: 'from-cyan-400 to-cyan-300',
+  },
+  {
+    id: '5',
+    brand: 'X402 Payment',
+    value: 120,
+    currency: 'USD',
+    image: '/cards/x402.png',
+    bgColor: 'from-teal-400 to-cyan-400',
+    featured: true,
+  },
+  {
+    id: '6',
+    brand: 'EdIt',
+    value: 379,
+    currency: 'USD',
+    image: '/cards/edit.png',
+    bgColor: 'from-green-400 to-teal-300',
+  },
+];
 
 export function GiftCardGrid() {
-  const giftCards: GiftCard[] = [
-    { id: '1', brand: 'FIX', value: 300, image: '/cards/fix.png', color: '#5eead4' },
-    { id: '2', brand: 'Dioniny', value: 150, image: '/cards/dioniny.png', color: '#1e1b4b' },
-    { id: '3', brand: 'Present', value: 150, image: '/cards/present.png', color: '#5eead4' },
-    { id: '4', brand: 'City Clap', value: 250, image: '/cards/cityclap.png', color: '#22d3ee' },
-    { id: '5', brand: 'SPOT', value: 120, image: '/cards/spot.png', color: '#0f172a' },
-    { id: '6', brand: 'EarlLarft', value: 379, image: '/cards/earllarft.png', color: '#5eead4' },
-    { id: '7', brand: 'Gift Card', value: 100, image: '/cards/gift1.png', color: '#d4af7a' },
-    { id: '8', brand: 'YouTube', value: 150, image: '/cards/youtube.png', color: '#dc2626' },
-    { id: '9', brand: 'Beninors', value: 440, image: '/cards/beninors.png', color: '#7dd3fc' },
-  ]
-
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold text-fg">Gift Cards</h2>
-        <label className="relative inline-flex items-center cursor-pointer">
-          <input type="checkbox" className="sr-only peer" defaultChecked />
-          <div className="w-11 h-6 bg-surface peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-accent rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-success"></div>
-        </label>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {giftCards.map((card) => (
-          <GiftCardItem key={card.id} card={card} />
-        ))}
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+      {giftCards.map((card) => (
+        <GiftCardItem key={card.id} card={card} />
+      ))}
     </div>
-  )
+  );
 }
