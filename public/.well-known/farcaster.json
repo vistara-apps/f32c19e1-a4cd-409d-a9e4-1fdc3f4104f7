@@ -8,9 +8,9 @@
     "version": "next",
     "name": "GiftCardX",
     "iconUrl": "https://giftcardx.com/icon.png",
-    "homeUrl": "https://giftcardx.com",
+    "homeUrl": "https://app-3f4104f7-pc3g.vercel.app",
     "splashImageUrl": "https://giftcardx.com/splash.png",
     "splashBackgroundColor": "#0f1729",
-    "webhookUrl": "https://giftcardx.com/api/farcaster-webhook"
+    "webhookUrl": "https://app-3f4104f7-pc3g.vercel.app/api/webhook"
   }
 }
